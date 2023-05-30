@@ -1,8 +1,9 @@
 import fetchMovieDetails from 'API/GetMovieDetails';
 import { useState, useEffect, Suspense } from 'react';
 import { useParams, Outlet, Link } from 'react-router-dom';
-import MovieInfo from './MovieInfo';
-import Loader from './Loader';
+import MovieInfo from '../MovieInformation/MovieInfo';
+import Loader from '../Loader';
+import { AdditionalInfoContainer, AdditionalInfoItem, AdditionalInfoLink, AdditionalInfoList, AdditionalInfoTitle } from './MovieDetails.Styled';
 
 
 const MovieDetails = () => {
@@ -26,19 +27,19 @@ const MovieDetails = () => {
     getMovieById();
   }, [movieId]);
   return (
-    <div>
+    <AdditionalInfoContainer>
       {loading && <Loader />}
       <Link to='/'>Go back</Link>
       <MovieInfo movie={movie} genres={genres} />
-      <h2>Additional information</h2>
-      <ul>
-        <li><Link to="cast">Cast</Link></li>
-        <li><Link to="reviews">Reviews</Link></li>
-      </ul>
+      <AdditionalInfoTitle>Additional information</AdditionalInfoTitle>
+      <AdditionalInfoList>
+        <AdditionalInfoItem><AdditionalInfoLink to="cast">Cast</AdditionalInfoLink></AdditionalInfoItem>
+        <AdditionalInfoItem><AdditionalInfoLink to="reviews">Reviews</AdditionalInfoLink></AdditionalInfoItem>
+      </AdditionalInfoList>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-    </div>
+    </AdditionalInfoContainer>
   );
 };
 

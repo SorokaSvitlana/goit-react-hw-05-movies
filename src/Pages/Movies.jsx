@@ -1,7 +1,7 @@
 import fetchSearchMovies from 'API/GetSearchMovies';
 import Loader from 'components/Loader';
-import MovieList from 'components/MovieList';
-import Search from 'components/Search';
+import MovieList from 'components/MovieInformation/MovieList';
+import Search from 'components/Search/Search';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
