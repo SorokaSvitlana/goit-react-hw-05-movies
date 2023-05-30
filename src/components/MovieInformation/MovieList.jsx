@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { ListContainer, ListItem, StyledLink } from './MovieList.Styled';
 
 
 const MovieList = ({ array }) => {
@@ -7,17 +8,17 @@ const MovieList = ({ array }) => {
   const routeName = location.pathname.includes('/movies') ? '' : 'movies/';
 
   return (
-    <ul>
+    <ListContainer>
       {array.map(element => {
         return (
-          <li key={element.id}>
-            <Link to={`${routeName}${element.id}`} state={{ from: location }}>
+          <ListItem key={element.id}>
+            <StyledLink to={`${routeName}${element.id}`} state={{ from: location }}>
               {element.title}
-            </Link>
-          </li>
+            </StyledLink>
+          </ListItem>
         );
       })}
-    </ul>
+    </ListContainer>
   );
 };
 

@@ -4,6 +4,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  padding-left: 20px
 `;
 
 const MovieImage = styled.img`
